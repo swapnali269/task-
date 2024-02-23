@@ -17,7 +17,7 @@ variable "vpc_id" {
 }
 
 variable "subnets" {
-  default = ["subnet-0d48bc8236fe5ce0e"]
+  default = ["subnet-0d48bc8236fe5ce0e","subnet-0a6caeea4f7304c9d"]
 }
 
 
@@ -56,7 +56,7 @@ resource "aws_launch_configuration" "example" {
   name          = "example-lc"
   image_id      = "ami-02d0a1cbe2c3e5ae4" # Your AMI ID
   instance_type = "t3.micro"
-  security_groups = [aws_security_group.web_sg.name]
+  security_groups = [aws_security_group.web_sg.id]
 
   user_data = <<-EOF
               #!/bin/bash
